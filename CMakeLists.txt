@@ -5,26 +5,14 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     tf
     message_generation
+    robot_msgs
 )
 
-
-## Generate messages in the 'msg' folder
-add_message_files(
-   FILES
-   IrTransformMsg.msg
-)
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-   DEPENDENCIES
-   std_msgs
-   geometry_msgs  # Or other packages containing msgs
-)
 
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES transforms
-#  CATKIN_DEPENDS roscpp
+   CATKIN_DEPENDS roscpp robot_msgs
 #  DEPENDS system_lib
 )
 

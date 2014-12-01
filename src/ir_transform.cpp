@@ -2,7 +2,7 @@
 #include <tf/transform_listener.h>
 #include <ras_arduino_msgs/ADConverter.h>
 #include <geometry_msgs/PointStamped.h>
-#include <transforms/IrTransformMsg.h>
+#include <robot_msgs/IrTransformMsg.h>
 
 class IrTransform {
 
@@ -15,7 +15,7 @@ public:
     IrTransform() {
         node = ros::NodeHandle();
         ir_sub = node.subscribe("/ir_sensor_cm", 1, &IrTransform::IrCallback, this);
-        ir_pub = node.advertise<transforms::IrTransformMsg>("/transformed_ir_points", 1);
+        ir_pub = node.advertise<robot_msgs::IrTransformMsg>("/transformed_ir_points", 1);
     }
     ~IrTransform() {}
 
@@ -23,7 +23,7 @@ public:
     void IrCallback(const ras_arduino_msgs::ADConverterConstPtr &msg) {
 
         geometry_msgs::PointStamped sensor1, sensor2, sensor3, sensor4;
-        transforms::IrTransformMsg itmsg;
+        robot_msgs::IrTransformMsg itmsg;
 
         try{
             geometry_msgs::PointStamped base_point1, base_point2, base_point3, base_point4;
