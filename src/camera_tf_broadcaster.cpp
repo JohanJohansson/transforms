@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 
     ros::Rate loop_rate(20.0);
     while (n.ok()) {
-        transform.setOrigin(tf::Vector3(0.0, 0.05, 0.14));
+        transform.setOrigin(tf::Vector3(-0.04, 0.05, 0));
         tf::Quaternion q;
         q.setEuler(0.0, angle, 0.0);
         transform.setRotation(q);
